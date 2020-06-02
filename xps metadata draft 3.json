@@ -3,7 +3,7 @@
 "title": "xps metadata version 0.1",
 "description": "a metadata schema for user uploads of xps data sets"
 "type":"object"
-"properties":{
+"definitions":{
 	"Instrument":{
 			"description":"Metadata of the instrument or instrument configuration the dataset was measured using",
 			"type":"object",
@@ -38,10 +38,11 @@
 					"description":"The kind of detector used in the instrument",
 					"type":"string"
 				},
-				"Source to analyzer angle":{
-					"description":"The angle between the excitation source and the central axis of the analyzer lens",
-					"type":"float"
-				},
+				"Excitation sources":{
+					"description":"The excitation sources used with this instrument",
+					"type":"array",
+					"items":[{"$ref":"#/definitions/Excitation source"}]
+				}
 				"Additional information":{
 					"description":"Space to enter additional configuration information",
 					"type":"string"
@@ -150,7 +151,7 @@
 				"properties":{
 					"Energy":{
 						"description":"The numerical value of the excitation energy used",
-						"type":"float",
+						"type":"number",
 						"$ref":"#vamassourceenergy"
 					},
 					"Units":{
@@ -180,7 +181,7 @@
 			},
 			"Pass Energy":{
 				"description": "the pass energy used to measure the spectrum. Given in units of eV",
-				"type":"float"
+				"type":"number"
 				"$ref":"#vamasresolution"
 			},
 			"Lens mode":{
@@ -189,12 +190,12 @@
 			},
 			"Dwell time":{
 				"description":"The time spent on each data point in a single scan in milliseconds",
-				"type": "float"
+				"type": "number"
 				"$ref":"#vamasdwelltime"
 			},
 			"Step size": {
 				"description": "The distance between points in the abcissa. In units of eV.",
-				"type":"float"
+				"type":"number"
 				"$ref":"#vamasstep"
 			},
 			"Number of scans averaged":{
@@ -240,7 +241,7 @@
 								"properties":{
 									"Value":{
 										"description":"The numerical value of the temperature",
-										"type":"float"},
+										"type":"number"},
 									"Units":{
 										"description":"The units the temperature is reported in."
 										"type":"string"}
@@ -252,7 +253,7 @@
 								"properties":{
 									"Value":{
 										"description":"The numerical value of the pressure",
-										"type":"float"},
+										"type":"number"},
 									"Units":{
 										"description":"The units the pressure is reported in."
 										"type":"string"}}},
@@ -271,7 +272,7 @@
 											"properties":{
 												"value":{
 													"description":"the numerical value of the component's concentration",
-													"type":"float"},
+													"type":"number"},
 												"units":{
 												"description":"The units used in reporting the concentration",
 													"type":"string"}
@@ -301,7 +302,7 @@
 							"type":"object",
 							"properties":{
 								"area":{
-									"type":"float"},
+									"type":"number"},
 								"units": {
 									"type":"string"}
 								}},
@@ -309,7 +310,7 @@
 							"description":"The strength of the excitation source used during the measurement",
 							"type":"object",
 							"properties":{
-								"strength":{"type":"float"},
+								"strength":{"type":"number"},
 								"units":{"type":"string"}}},
 						"Source beam size":{
 							"description":"The size of the excitation beam on the sample during measurment",
@@ -317,20 +318,20 @@
 							"properties":{
 								"x":{
 									"description":"The dimension of the beam in the x direction",
-									"type":"float"},
+									"type":"number"},
 								"y":{
 									"description":"The dimension of the beam in the y direction",
-									"type":"float"},
+									"type":"number"},
 								"units":{
 									"description":"The units used to report the beam size",
 									"type":"string"}}
 							},
 						"Take-off angle":{
 							"description":"The angle in degree between the sample's surface normal vector and the analyzer's lens axis",
-							"type":"float"},
+							"type":"number"},
 						"Analyzer acceptance angle":{
 							"description":"The acceptance angle in degrees of the spectrometer during the measurement of the dataset",
-							"type":"float"}	
+							"type":"number"}	
 						"Entrance slit":{
 							"descritpion":"The size of the entrance aperture to the analyzer in units of mm",
 							"type":"string"},					
@@ -370,7 +371,7 @@
 								},
 								"Binding energy":{
 									"description":"The calibrated binding energy value of the specified emission line in units of eV",
-									"type":"float"
+									"type":"number"
 								}
 							}
 						},
@@ -397,7 +398,7 @@
 					},
 					"Binding energy":{
 						"description":"The binding energy that the specified emission line appeard at, after adjusting the binding energy scale, in units of eV",
-						"type":"float"}
+						"type":"number"}
 				}
 		}
 	},
@@ -540,12 +541,12 @@
 					"sourceLabel":{},
 					"sourceEnergy":{
 						"description":"The energy of the excitation source in eV",
-						"type":"float",
+						"type":"number",
 						"$id":"#vamassourceenergy"
 					},
 					"sourceAnalyzerAngle":{
 						"description":"The angle between the excitation source and the analyzer lens axis",
-						"type":"float",
+						"type":"number",
 						"$id":"#vamassourceanalyzerangle"
 					},
 					"analyzerMode":{
@@ -556,7 +557,7 @@
 					},
 					"resolution":{
 						"description":"The resolution of the instrument during spectrum measurement. For XPS it corresponds to pass energy"
-						"type":"float"
+						"type":"number"
 						"$id":"#vamasresolution"
 					},
 					"magnification":{},
@@ -592,7 +593,7 @@
 					"abscissaStart":{},
 					"abscissaStep":{
 						"description":"Step size of the abscissa",
-						"type":"float",
+						"type":"number",
 						"$id":"#vamasstep"
 					},
 					"noVariables":{},
@@ -619,7 +620,7 @@
 					},
 					"dwellTime":{
 						"description":"The integration time used for each abscicca value",
-						"type":"float",
+						"type":"number",
 						"$id":"#vamasdwelltime"
 					},
 					"noScans":{
@@ -647,7 +648,7 @@
 						"description":"The numerical data of the spectrum",
 						"type":"array",
 						"items":{
-							"type":"float"}
+							"type":"number"}
 					}
 				}			
 			}		
@@ -670,5 +671,108 @@
 		],
 		"maxItems":1		
 	}
-}
+	"Excitation source":{
+		"description":"A photon source used for photoemission",
+		"type":"object",
+		"properties":{
+			"Source to analyzer angle":{
+				"description":"The angle between the excitation source and the analyzer's lens axis",
+				"type":"number"
+				}
+			"Source":{
+				"type":"object"
+				"oneOf":[
+					{"$ref": "#/definitions/Synchrotron"},
+					{"$ref": "#/definitions/Anode"},
+					{"$ref": "#/definitions/Gas discharge"},
+					{"$ref": "#/definitions/Laser"}
+					]
+				}
+			}
+		}
+
+	"Synchrotron":{
+		"type":"object",
+		"properties":{
+			"Synchrotron name":{
+				"description":"The name of the synchrotron",
+				"type":"string"
+				},
+			"Beamline":{
+				"type":"object",
+				"properties":{
+					"Name":{
+						"description":"The name of the beamline",
+						"type":"string"
+						},
+					"Energy range":{
+						"description":"The photon energy range of the beamline, in eV".
+						"type":"string"
+						},
+					"Source kind":{
+						"type":"string",
+						"enum":["Bending magnet", "Wiggler", "Undulator"]
+						},
+					"Monochromator kind":{
+						"type":"string"
+						},
+					"Polarization":{
+						"type":"string"
+						},
+					"Spot size range":{
+						"description":"The minimum and maximum spot size in micrometers"
+						"type":"string"
+						}
+					}
+				}
+			}
+		},
+	"Anode":{
+		"type":"object",
+		"properties":{
+			"Anode material":{
+				"description":"The material used as the anode to generate X-rays by electron bombardment",
+				"type":"string",
+				"enum":["Al","Mg","Ag","Cr","Ga"]
+				},
+			"Spot size":{
+				"description":"Range of spot size diameters for the radiation at the surface of the sample, in units of micrometers",
+				"type":"string"
+				},
+			"Monochromated":{
+				"type":"boolean"
+				},
+			"Max voltage":{
+				"description":"The maximum voltage allowed, in units of kV",
+				"type":"number"
+				},
+			"Max power":{
+				"description":"The maximum power allowed, in units of kW",
+				"type":"number"
+				}
+			}
+		},
+	"Gas discharge":{
+		"type":"object",
+		"properties":{
+			"Gas type":{
+				"description":"The gas used in the discharge lamp",
+				"type":"string",
+				"enum":["He","Ar"]
+				},
+			"Monochromated":{
+				"type":"boolean"
+				}
+			}
+		},
+	"Laser":{
+		"type":"object",
+		"properties":{
+			"Energy range":{
+				"description":"The energy range possible, in units of eV",
+				"type":"string"
+				}
+			}
+		}	
+	}
 }
