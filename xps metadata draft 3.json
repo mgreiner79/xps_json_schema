@@ -79,12 +79,7 @@
                 "City": {
                     "description": "The city in which the laboratory is located",
                     "type": "string",
-                    "enum": [
-                        "Essen",
-                        "Berlin",
-                        "Toronto",
-                        "London"
-                    ]
+                    "$ref":"cities.json#/definitions/City/name"
                 },
                 "Instruments": {
                     "description": "A list of instruments associated with the laboratory",
