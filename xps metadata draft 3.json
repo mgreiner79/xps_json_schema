@@ -5876,6 +5876,9 @@
 		"Synchrotron": {
 			"type": "object",
 			"properties": {
+				"Kind":{
+					"const":"Synchrotron"
+				},
 				"Synchrotron name": {
 					"description": "The name of the synchrotron",
 					"type": "string"
@@ -5912,6 +5915,9 @@
 		"Anode": {
 			"type": "object",
 			"properties": {
+				"Kind":{
+					"const":"Anode"
+				},
 				"Anode material": {
 					"description": "The material used as the anode to generate X-rays by electron bombardment",
 					"type": "string",
@@ -5941,6 +5947,9 @@
 		"Gas discharge": {
 			"type": "object",
 			"properties": {
+				"Kind": {
+					"const":"Gas discharge"
+				},
 				"Gas type": {
 					"description": "The gas used in the discharge lamp",
 					"type": "string",
@@ -5954,10 +5963,15 @@
 		},
 		"Laser": {
 			"type": "object",
-			"properties": {"Energy range": {
-				"description": "The energy range possible, in units of eV",
-				"type": "string"
-			}}
+			"properties": {
+				"Kind": {
+					"const":"Laser"
+				},
+				"Energy range": {
+					"description": "The energy range possible, in units of eV",
+					"type": "string"
+				}
+			}
 		}
 	},
     "anyOf": [

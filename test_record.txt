@@ -1,0 +1,106 @@
+{
+	"Instrument":{
+		"InstrumentID":	"b1f676e7-f591-49b4-afe9-e38b0034c724",
+		"Instrument manufacturer":"SPECS GmbH",
+		"Intrument model":"Phiobos NAP-150",
+		"Analyzer radius":150,
+		"Serial number":"",
+		"Year installed":2017,
+		"Detector type":"1D DLD",
+		"Excitation sources":[
+			{"Source to analyzer angle": 56.5,
+			"Source":{
+				"Kind":"Anode",
+				"Anode material":"Al",
+				"Spot size":"1000",
+				"Monochromated":true, 
+				"Max voltage":15, 
+				"Max power":180
+			}
+			},
+			{"Source to analyzer angle":45,
+			"Source":{
+				"Kind":"Gas discharge",
+				"Gas type":"He",
+				"Monochromated":false
+			}
+			}		
+		],
+		"Additional information":""
+	},
+	"Laboratory":{
+		"LaboratoryID":"13e7e719-b085-4ae6-9fbe-c7557f6198d8",
+		"Name":"Surface Analytics Laboratory",
+		"Country":"Germany",
+		"City":"Muelheim an der Ruhr",
+		"Instruments":["b1f676e7-f591-49b4-afe9-e38b0034c724"]
+	},
+	"Sample":{
+			"SampleID":"fd4816cf-b57b-4f4e-a0d4-d725b323e1cf",
+			"Name":"Sputter cleaned Au",
+			"Composition":{
+					"Major components":["Au"],
+					"Minor components":["C"],							
+			},
+			"Form":[
+				"Foil"
+			],
+			"Ex-situ preparation":"Clamped to a metal sample holder with steel screws",
+			"In-situ preparation":"Sputter cleaned for 5 minutes, using Ar at 3 kV and 1E-5 mbar"
+	},
+	"Spectrum": {
+			"Excitation energy":{
+				"Energy":1846.61,
+				"Units":"eV"
+			},
+			"SpectrumID": "7bdb1df7-05d3-4b9c-8bb2-3eef3dcc4612",
+			"Spectrum type":[["Au", "4f"]],
+			"Pass Energy":20,
+			"Lens mode":"ARM22",
+			"Dwell time":100,
+			"Step size": 0.05,
+			"Number of scans averaged":3
+	},
+	"Dataset": {
+		"DatasetID":"2940865b-310f-46d0-8425-e6547406bc0f",
+		"Date measured":["2020","02","15"],
+		"Spectra":["7bdb1df7-05d3-4b9c-8bb2-3eef3dcc4612"],
+		"Conditions":{
+			"Temperature": {
+				"Value":25,
+				"Units":"Celsius"
+				},
+			"Pressure":{
+				"Value":1E-9,
+				"Units":"mbar"
+				}
+		},
+		"Link to publication":"",
+		"InstrumentID":"b1f676e7-f591-49b4-afe9-e38b0034c724",
+		"Spectrometer settings":{
+				"Analyzer mode":"FAT",
+				"Analyzer analysis area":{"area":800,"units":"micrometers"},
+				"Source strength":{"strength":180,"units":"W"},
+				"Source beam size":{
+					"x":800,
+					"y":800, 
+					"units":"micrometers"
+				},
+				"Take-off angle":90,
+				"Analyzer acceptance angle":22,	
+				"Entrance slit":"7mm x 20mm slit",					
+		},
+		"UserID":"3f454b0b-c91b-4727-8bf4-cd2b809f548c",
+		"SampleID":"fd4816cf-b57b-4f4e-a0d4-d725b323e1cf"
+	},
+	"User":{
+		"UserID":"c39ff328-5374-463c-a774-eb10d7411126",
+		"Given name":"Bob",
+		"Family name":"McGee",
+		"Email":["bob@mggee_enterprises.com", "wild_one_25@gmail.com"],
+		"Laboratories":["13e7e719-b085-4ae6-9fbe-c7557f6198d8"],
+		"Instruments":["b1f676e7-f591-49b4-afe9-e38b0034c724"],
+		"Uploaded datasets":["2940865b-310f-46d0-8425-e6547406bc0f"],
+		"Favorite datasets":["2940865b-310f-46d0-8425-e6547406bc0f"],
+	}
+}
